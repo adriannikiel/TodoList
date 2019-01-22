@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    private List<TodoItem> todoItemLists;
+    private List<TodoItem> todoItems;
 
     public void initialize() {
         TodoItem item1 = new TodoItem("Mail birthday card", "Buy a 30th birthday card for John",
@@ -22,11 +22,11 @@ public class Controller {
         TodoItem item5 = new TodoItem("Pick up dry cleaning", "The clothes should be ready by Wednesday",
                 LocalDate.of(2016, Month.APRIL,20));
 
-        todoItemLists = new ArrayList<TodoItem>();
-        todoItemLists.add(item1);
-        todoItemLists.add(item2);
-        todoItemLists.add(item3);
-        todoItemLists.add(item4);
-        todoItemLists.add(item5);
+        todoItems = new ArrayList<TodoItem>();
+        todoItems.add(item1);
+        todoItems.add(item2);
+        todoItems.add(item3);
+        todoItems.add(item4);
+        todoItems.add(item5);
     }
 }
