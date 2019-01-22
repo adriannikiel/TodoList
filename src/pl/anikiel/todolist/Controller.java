@@ -16,7 +16,7 @@ public class Controller {
     @FXML
     private ListView<TodoItem> todoListView;
 
-
+mai
     public void initialize() {
         TodoItem item1 = new TodoItem("Mail birthday card", "Buy a 30th birthday card for John",
                 LocalDate.of(2016, Month.APRIL, 25));
@@ -39,5 +39,10 @@ public class Controller {
         todoListView.getItems().setAll(todoItems);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
+
+    @FXML
+    public void handleClickListView() {
+        TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
+        System.out.println("The selection item is " + item);
     }
 }
