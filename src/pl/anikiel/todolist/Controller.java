@@ -46,6 +46,11 @@ public class Controller {
     @FXML
     public void handleClickListView() {
         TodoItem item = todoListView.getSelectionModel().getSelectedItem();
-        itemDetailsTextArea.setText(item.getDetails());
+
+        StringBuilder sb = new StringBuilder(item.getDetails());
+        sb.append("\n\n\n\n");
+        sb.append("Due: ");
+        sb.append(item.getDeadline().toString());
+        itemDetailsTextArea.setText(sb.toString());
     }
 }
