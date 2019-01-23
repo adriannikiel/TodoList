@@ -1,5 +1,7 @@
 package pl.anikiel.todolist;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -34,7 +36,7 @@ public class Controller {
         TodoItem item4 = new TodoItem("Pickup Doug at the train station", "Doug's arriving on March 23 on the 5:00 train",
                 LocalDate.of(2016, Month.MARCH, 23));
         TodoItem item5 = new TodoItem("Pick up dry cleaning", "The clothes should be ready by Wednesday",
-                LocalDate.of(2016, Month.APRIL,20));
+                LocalDate.of(2016, Month.APRIL, 20));
 
         todoItems = new ArrayList<TodoItem>();
         todoItems.add(item1);
@@ -43,7 +45,16 @@ public class Controller {
         todoItems.add(item4);
         todoItems.add(item5);
 
-        
+        todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
+            @Override
+            public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem todoItem, TodoItem t1) {
+                if (t1 != null) {
+                    TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+                    itemDetailsTextArea.setText(item.getDetails());
+                    deadlineLabel.setText(item.getDeadline().toString());
+                }
+            }
+        });
 
         todoListView.getItems().setAll(todoItems);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
