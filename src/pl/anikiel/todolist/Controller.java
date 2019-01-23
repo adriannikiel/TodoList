@@ -3,6 +3,7 @@ package pl.anikiel.todolist;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import pl.anikiel.todolist.datamodel.TodoItem;
 
 import java.time.LocalDate;
@@ -16,6 +17,8 @@ public class Controller {
     @FXML
     private ListView<TodoItem> todoListView;
 
+    @FXML
+    private TextArea itemDetailsTextArea;
 
     public void initialize() {
         TodoItem item1 = new TodoItem("Mail birthday card", "Buy a 30th birthday card for John",
@@ -42,7 +45,7 @@ public class Controller {
 
     @FXML
     public void handleClickListView() {
-        TodoItem item = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
-        System.out.println("The selection item is " + item);
+        TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+        itemDetailsTextArea.setText(item.getDetails());
     }
 }
