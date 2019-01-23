@@ -43,8 +43,11 @@ public class Controller {
         todoItems.add(item4);
         todoItems.add(item5);
 
+        
+
         todoListView.getItems().setAll(todoItems);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        todoListView.getSelectionModel().selectFirst();
     }
 
     @FXML
