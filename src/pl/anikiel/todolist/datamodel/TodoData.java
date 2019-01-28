@@ -32,10 +32,14 @@ public class TodoData {
         return todoItems;
     }
 
-//    useful only for first storing data do file from hard-coded source
+    public void addTodoItem(TodoItem item) {
+        todoItems.add(item);
+    }
 
+//    useful only for first storing data to file from hard-coded source
 //    public void setTodoItems(List<TodoItem> todoItems) {
 //        this.todoItems = todoItems;
+
 //    }
 
     public void loadTodoItems() throws IOException {
